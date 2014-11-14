@@ -1,0 +1,59 @@
+.simplebox {
+    display: block;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    border-top: 1px solid #f35b41;
+    margin: 0 15px 15px;
+    position: relative;
+}
+.simplebox-title, .simplebox-content {
+	/*box-shadow: 0 1px 1px #ddd inset;*/
+	/*border: 1px solid #cccccc;*/
+	/*border-radius: 5px;*/
+	/*background: #fff;*/
+}
+.simplebox-title {
+text-align: right;
+    display: block;
+
+    font-weight: normal;
+    clear: both;
+    color: #b5b5b6;
+    font-size: 12px;
+    margin-top: 0;
+    padding-top: .5em;
+}
+
+
+.simplebox-content {
+    cursor: pointer;
+
+    padding-top: 10px;
+    max-width: 100%;
+    position: relative;
+}
+.simplebox-content *{margin: 0}
+.simplebox-content img{display: block;
+    height: auto;
+    max-width: 100%;}
+.simplebox-content:after {
+    width: 10%;
+    height: 10px;
+    background: #f35b41;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.simplebox.align-right {
+	float: right;
+}
+.simplebox.align-left {
+	float: left;
+}
+.simplebox.align-center {
+	margin-left: auto;
+	margin-right: auto;
+}

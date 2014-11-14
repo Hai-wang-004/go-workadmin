@@ -1,0 +1,168 @@
+<script src="/static/Js/fullcalendar/lib/moment.min.js"></script>
+<script src="/static/Js/fullcalendar/lib/jquery-ui.custom.min.js"></script>
+
+<script src="/static/Js/fullcalendar/fullcalendar.min.js"></script> 
+<script src="/static/Js/jquery.fancybox.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="/static/Js/fullcalendar/fullcalendar.css">
+<link media="screen" type="text/css" href="/static/Js/fullcalendar/lib/cupertino/jquery-ui.min.css" rel="stylesheet" />
+
+<link rel="stylesheet" type="text/css" href="/static/Js/fullcalendar/css/fancybox.css">
+
+<script type="text/javascript"> 
+
+$(document).ready(function() {
+	renderCalendar();
+});
+	function renderCalendar() {
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			defaultDate: '{$day}',
+			lang: 'zh-cn',
+			theme:true,
+			buttonIcons: true, // show the prev/next text
+			weekNumbers: true,
+			ignoreTimezone: true,
+			droppable: true, 
+			timeFormat: 'H:mm',
+			axisFormat: 'H:mm',
+				editable: true,
+				disableDragging: false,
+				diableResizing: false,
+				selectable: true,
+				selectHelper: true,
+				 aspectRatio:1.5,
+			//添加
+			select: function(start, end) {
+				$.fancybox({
+					'type':'ajax',
+					'href':"{:U(MODULE_NAME.'/'.ACTION_NAME,array('ts'=>'add','type'=>2))}&start="+start+"&end="+end
+				});
+			},
+			//拖动
+			eventDrop:function( event, dayDelta, minuteDelta, allDay, revertFunc, jsEvent, ui, view){
+				//alert(dayDelta+'|'+minuteDelta+'|'+allDay);
+					//alert(event.id);
+					var eventData;
+					eventData = {
+							start: event.start,
+							end: event.end,
+							id:event.id
+						};
+					$.post("{:U(MODULE_NAME.'/'.ACTION_NAME,array('ts'=>'edit','type'=>'1'))}",eventData,function(data){
+						if(data.status==1){
+							
+						}
+						else{
+							alert(data.info);
+						}
+					},'json');
+			},
+			//改变大小
+			eventResize:function(event, dayDelta, minuteDelta, revertFunc, jsEvent, ui, view){
+				var eventData;
+				eventData = {
+						start: event.start,
+						end: event.end,
+						id:event.id
+					};
+				$.post("{:U(MODULE_NAME.'/'.ACTION_NAME,array('ts'=>'edit','type'=>'1'))}",eventData,function(data){
+					if(data.status==1){
+					}
+					else{
+						alert(data.info);
+					}
+				},'json');
+				
+			},
+			//数据
+			{$json_str}
+			//数据展示
+			eventRender: function(event, element) {  
+		          var fstart  = $.fullCalendar.formatDate(event.start, "dd/HH:mm");  
+		        var fend  = $.fullCalendar.formatDate(event.end, "dd/HH:mm");    
+		         element.prepend(fstart + "-" +  fend);  
+		         element.css('backgroundColor',event.color);
+		        },
+            //编辑
+			eventClick: function(calEvent, jsEvent, view) {
+				$.fancybox({
+					'type':'ajax',
+					'href':"{:U(MODULE_NAME.'/'.ACTION_NAME,array('ts'=>'edit','type'=>2))}&id="+calEvent.id+"&title="+calEvent.title
+				});
+				
+			},
+
+		});
+	}
+
+
+
+
+</script>
+
+<style>
+#calendar{width:auto; background-color:#fff;}
+.fancy{width:450px; height:auto}
+.fancy h3{height:30px; line-height:30px; border-bottom:1px solid #d3d3d3; font-size:14px}
+.fancy form{padding:10px}
+.fancy p{height:28px; line-height:28px; padding:4px; color:#999}
+.input{height:20px; line-height:20px; padding:2px; border:1px solid #d3d3d3; width:100px}
+.btn { -webkit-border-radius: 3px; -moz-border-radius:3px;padding:5px 12px; cursor:pointer;}
+.btn_ok{background: #360;border: 1px solid #390;color:#fff}
+.btn_cancel{background:#f0f0f0;border: 1px solid #d3d3d3; color:#666 }
+.btn_del{background:#f90;border: 1px solid #f80; color:#fff }
+.sub_btn{height:32px; line-height:32px; padding-top:6px; border-top:1px solid #f0f0f0; text-align:right; position:relative}
+.sub_btn .del{position:absolute; left:2px}
+.fc-header-left {width: 25%;text-align: right;}
+</style>
+
+<!-- BEGIN PAGE -->
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row-fluid">
+            <div class="span12">
+                <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+
+                <ul class="breadcrumb">
+                    {$currentNav}
+                </ul>
+                <!-- END PAGE TITLE & BREADCRUMB-->
+            </div>
+        </div>
+        <!-- END PAGE HEADER-->
+        <!-- BEGIN PAGE CONTENT-->
+
+
+        <!-- END PAGE CONTENT-->
+ 
+ <div class="portlet box blue calendar">
+						<div class="portlet-title">
+							<div class="caption"><i class="icon-reorder"></i>我的日历</div>
+						</div>
+						<div class="portlet-body light-grey">
+							<div class="row-fluid">
+
+								<div class="span12">
+									<div id="calendar" class="has-toolbar fc-ltr fc">
+                                    </div>
+								</div>
+							</div>
+							<!-- END CALENDAR PORTLET-->
+						</div>
+					</div>
+					
+        
+        
+    </div>
+    <!-- END PAGE CONTAINER-->
+</div>
+
+<!-- END PAGE -->

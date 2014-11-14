@@ -1,0 +1,153 @@
+10
+
+dir
+7
+http://svn.jm.lan:81/youwuadmin/dev/Public/Js/ckeditor/ckeditor/plugins
+http://svn.jm.lan:81/youwuadmin
+
+
+
+2014-08-19T05:47:15.231922Z
+1
+wanghai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+f450655a-1c3f-11e4-8c5c-bfd7355dc14f
+
+widget
+dir
+
+quotation
+dir
+
+scayt
+dir
+
+a11yhelp
+dir
+
+table
+dir
+
+magicline
+dir
+
+wsc
+dir
+
+pastefromword
+dir
+
+link
+dir
+
+icons.png
+file
+
+
+
+
+2014-08-19T06:10:08.470867Z
+226ce0844d73f116b3c6d9e2f7a6fd84
+2014-08-19T05:47:15.231922Z
+1
+wanghai
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+71432
+
+clipboard
+dir
+
+dialog
+dir
+
+simplebox
+dir
+
+image2
+dir
+
+lineutils
+dir
+
+tabletools
+dir
+
+about
+dir
+
+icons_hidpi.png
+file
+
+
+
+
+2014-08-19T06:10:08.470867Z
+1f57f384a8331a0cd3b8dfadfb61f0cd
+2014-08-19T05:47:15.231922Z
+1
+wanghai
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+34465
+
+specialchar
+dir
+
+preview
+dir
+
+image
+dir
+

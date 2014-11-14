@@ -1,0 +1,109 @@
+<script src="/static/js/jquery-ui-1.10.3.js"></script>
+<style>
+.fancy h1{
+	height: 30px;
+line-height: 30px;
+padding:auto;
+margin-top:50px;
+text-align:center;
+font-size: 20px;
+}
+</style>
+
+ {{if  eq .ts "edit"}}
+<div class="fancy">
+	<h3>修改事件</h3>
+    <form id="edit_form"  method="post">
+    <input type="hidden" name="workid" id="workid" value="{{.Info.Id}}">
+    <p>日程内容：<input type="text" class="input" name="title" id="title"  value="{{.Info.Title}}" style="width:320px" placeholder="记录你将要做的一件事..."></p>
+  <p>日程程度：{{str2html .TaskType}}</p>
+    <div class="sub_btn"><input type="button" class="btn btn_ok" value="修改"> <input type="button" class="btn del" value="删除任务" ></div>
+    </form>
+</div>
+{{else}}
+<div class="fancy">
+	<h3>添加事件</h3>
+    <form id="add_form"  method="post">
+ <input type="hidden" name="start"  value="{{.start}}">
+  <input type="hidden" name="end"  value="{{.end}}">
+    <p>日程内容：<input type="text" class="input" name="title" id="title"  value="" style="width:320px" placeholder="记录你将要做的一件事..."></p>
+  <p>日程程度：{{str2html .TaskType}}</p>
+    <div class="sub_btn"><input type="button" class="btn btn_add" value="添加"></div>
+    </form>
+</div>
+{{end}}
+<link media="screen" type="text/css" href="/static/css/jquery-ui.css" rel="stylesheet" />
+
+
+<script type="text/javascript" src="/static/js/jquery.form.js"></script>
+<script type="text/javascript">
+$(function(){
+	//提交表单
+	$('.btn_ok').click(function(){
+
+		if($("#title").val()==''){
+			alert('请输入事件内容');
+		}
+		else{
+			var eventData;
+			eventData = {
+					title: $("#title").val(),
+					task_type:$("input[name='task_type']:checked").val(),
+					id:$("#workid").val()
+				};
+			$.post("/index/index?ts=edit&type=3",eventData,function(data){
+
+				if(data.Status==1){
+					$('.fancy').html('<h1 style="color:green">修改成功</h1>');
+					setTimeout('location.reload()',2000);
+				}
+				else{
+					alert(data.Info);
+				}
+			},'json');
+		}
+    }); 
+	//提交表单
+	$('.btn_add').click(function(){
+
+		if($("#title").val()==''){
+			alert('请输入事件内容');
+		}
+		else{
+			var eventData;
+			eventData = {
+					title: $("#title").val(),
+					task_type:$("input[name='task_type']:checked").val(),
+					start:$("input[name='start']").val(),
+					end:$("input[name='end']").val()
+				};
+			$.post("/index/index?ts=add&type=3",eventData,function(data){
+				if(data.Status==1){
+					$('.fancy').html('<h1 style="color:green">添加成功</h1>');
+					setTimeout('location.reload()',2000);
+				}
+				else{
+					alert(data.Info);
+				}
+			},'json');
+		}
+    }); 
+	$('.del').click(function(){
+			var eventData;
+			eventData = {
+					id:$("#workid").val()
+				};
+			$.post("/index/index?ts=delete",eventData,function(data){
+				if(data.Status==1){
+					$('.fancy').html('<h1 style="color:green">删除成功</h1>');
+					setTimeout('location.reload()',2000);
+					location.reload();
+				}
+				else{
+					alert(data.Info);
+				}
+			},'json');
+		
+    }); 
+});
+</script>

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/youwuadmin/!svn/ver/6/dev/Public/Js/ckeditor/ckfinder/core/connector/php/php5/Core
+END
+ResourceTypeConfig.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/youwuadmin/!svn/ver/6/dev/Public/Js/ckeditor/ckfinder/core/connector/php/php5/Core/ResourceTypeConfig.php
+END
+Xml.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/youwuadmin/!svn/ver/6/dev/Public/Js/ckeditor/ckfinder/core/connector/php/php5/Core/Xml.php
+END
+Hooks.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/youwuadmin/!svn/ver/6/dev/Public/Js/ckeditor/ckfinder/core/connector/php/php5/Core/Hooks.php
+END
+Config.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/youwuadmin/!svn/ver/6/dev/Public/Js/ckeditor/ckfinder/core/connector/php/php5/Core/Config.php
+END
+Factory.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/youwuadmin/!svn/ver/6/dev/Public/Js/ckeditor/ckfinder/core/connector/php/php5/Core/Factory.php
+END
+AccessControlConfig.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/youwuadmin/!svn/ver/6/dev/Public/Js/ckeditor/ckfinder/core/connector/php/php5/Core/AccessControlConfig.php
+END
+Registry.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/youwuadmin/!svn/ver/6/dev/Public/Js/ckeditor/ckfinder/core/connector/php/php5/Core/Registry.php
+END
+FolderHandler.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/youwuadmin/!svn/ver/6/dev/Public/Js/ckeditor/ckfinder/core/connector/php/php5/Core/FolderHandler.php
+END
+Connector.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/youwuadmin/!svn/ver/6/dev/Public/Js/ckeditor/ckfinder/core/connector/php/php5/Core/Connector.php
+END
+ImagesConfig.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/youwuadmin/!svn/ver/6/dev/Public/Js/ckeditor/ckfinder/core/connector/php/php5/Core/ImagesConfig.php
+END
+ThumbnailsConfig.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/youwuadmin/!svn/ver/6/dev/Public/Js/ckeditor/ckfinder/core/connector/php/php5/Core/ThumbnailsConfig.php
+END
