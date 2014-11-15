@@ -1,0 +1,15 @@
+
+.header ul li.current{ border: 2px solid #000; background-color:#000; border-radius:0px;height:78px;width:78px}
+.header ul li.current a{
+	background-image:none;  border:1px solid #fff; border-radius:6px 6px 6px 6px; background-color:#fff;
+	height:auto;
+	height:58px;
+	padding-top:18px;
+}
+
+.header ul li.index{border: 2px solid #000; background-color:#000; border-radius:0px;height:78px;width:78px}
+.header ul li.index a{
+	background-image:none;  border:1px solid #fff; border-radius:6px 6px 6px 6px; background-color:#fff;
+	height:58px;
+	padding-top:18px;
+}
